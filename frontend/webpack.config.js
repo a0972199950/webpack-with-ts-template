@@ -3,7 +3,8 @@ const path = require('path')
 module.exports = {
   entry: {
     first: './src/first.ts',
-    second: './src/second.ts'
+    second: './src/second.ts',
+    vue: './src/vue.ts'
   },
 
   output: {
@@ -16,8 +17,14 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
+
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /node_modules/
+      }
     ],
   },
 
